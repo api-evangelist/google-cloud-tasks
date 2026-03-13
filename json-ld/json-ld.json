@@ -1,0 +1,28 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gcp": "https://cloud.google.com/tasks/docs/reference/rest/v2/",
+    "Queue": "gcp:projects.locations.queues",
+    "Task": "gcp:projects.locations.queues.tasks",
+    "name": "schema:name",
+    "description": "schema:description",
+    "state": "schema:status",
+    "url": "schema:url",
+    "httpMethod": "schema:HttpMethod",
+    "scheduleTime": "schema:scheduledTime",
+    "createTime": "schema:dateCreated",
+    "maxAttempts": "schema:repeatCount",
+    "rateLimits": {
+      "@id": "gcp:RateLimits",
+      "@type": "@id"
+    },
+    "retryConfig": {
+      "@id": "gcp:RetryConfig",
+      "@type": "@id"
+    },
+    "httpRequest": {
+      "@id": "gcp:HttpRequest",
+      "@type": "@id"
+    }
+  }
+}

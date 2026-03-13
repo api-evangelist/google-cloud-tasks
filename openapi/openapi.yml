@@ -1,0 +1,416 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Tasks API
+  description: >-
+    The Cloud Tasks API enables management of distributed task execution. It
+    allows you to create queues, enqueue tasks, and configure retry and rate
+    limiting behavior for tasks targeting App Engine or arbitrary HTTP endpoints.
+  version: v2
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/tasks/docs
+servers:
+  - url: https://cloudtasks.googleapis.com
+paths:
+  /v2/projects/{project}/locations/{location}/queues:
+    get:
+      operationId: listQueues
+      summary: List queues
+      description: Lists queues in a project and location.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListQueuesResponse'
+    post:
+      operationId: createQueue
+      summary: Create a queue
+      description: Creates a queue in the specified project and location.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Queue'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+  /v2/projects/{project}/locations/{location}/queues/{queue}:
+    get:
+      operationId: getQueue
+      summary: Get a queue
+      description: Gets a queue configuration.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+    patch:
+      operationId: updateQueue
+      summary: Update a queue
+      description: Updates a queue configuration.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Queue'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+    delete:
+      operationId: deleteQueue
+      summary: Delete a queue
+      description: Deletes a queue and all of its tasks.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /v2/projects/{project}/locations/{location}/queues/{queue}/tasks:
+    get:
+      operationId: listTasks
+      summary: List tasks
+      description: Lists the tasks in a queue.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTasksResponse'
+    post:
+      operationId: createTask
+      summary: Create a task
+      description: Creates a task and adds it to a queue.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTaskRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+  /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:
+    get:
+      operationId: getTask
+      summary: Get a task
+      description: Gets a specific task.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: task
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+    delete:
+      operationId: deleteTask
+      summary: Delete a task
+      description: Deletes a task from a queue.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: task
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run:
+    post:
+      operationId: runTask
+      summary: Run a task
+      description: Forces a task to run now.
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queue
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: task
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+components:
+  schemas:
+    Queue:
+      type: object
+      properties:
+        name:
+          type: string
+          description: >-
+            The queue name in the format
+            projects/{project}/locations/{location}/queues/{queue}.
+        rateLimits:
+          $ref: '#/components/schemas/RateLimits'
+        retryConfig:
+          $ref: '#/components/schemas/RetryConfig'
+        state:
+          type: string
+          enum:
+            - STATE_UNSPECIFIED
+            - RUNNING
+            - PAUSED
+            - DISABLED
+    RateLimits:
+      type: object
+      properties:
+        maxDispatchesPerSecond:
+          type: number
+        maxBurstSize:
+          type: integer
+        maxConcurrentDispatches:
+          type: integer
+    RetryConfig:
+      type: object
+      properties:
+        maxAttempts:
+          type: integer
+        maxRetryDuration:
+          type: string
+        minBackoff:
+          type: string
+        maxBackoff:
+          type: string
+        maxDoublings:
+          type: integer
+    Task:
+      type: object
+      properties:
+        name:
+          type: string
+        httpRequest:
+          $ref: '#/components/schemas/HttpRequest'
+        scheduleTime:
+          type: string
+          format: date-time
+        createTime:
+          type: string
+          format: date-time
+        dispatchCount:
+          type: integer
+        responseCount:
+          type: integer
+    HttpRequest:
+      type: object
+      properties:
+        url:
+          type: string
+        httpMethod:
+          type: string
+          enum:
+            - HTTP_METHOD_UNSPECIFIED
+            - POST
+            - GET
+            - HEAD
+            - PUT
+            - DELETE
+            - PATCH
+            - OPTIONS
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        body:
+          type: string
+          format: byte
+    CreateTaskRequest:
+      type: object
+      properties:
+        task:
+          $ref: '#/components/schemas/Task'
+        responseView:
+          type: string
+          enum:
+            - VIEW_UNSPECIFIED
+            - BASIC
+            - FULL
+    ListQueuesResponse:
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextPageToken:
+          type: string
+    ListTasksResponse:
+      type: object
+      properties:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        nextPageToken:
+          type: string

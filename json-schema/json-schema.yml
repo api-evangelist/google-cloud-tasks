@@ -1,0 +1,123 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://raw.githubusercontent.com/api-evangelist/google-cloud-tasks/refs/heads/main/json-schema/json-schema.yml
+title: Google Cloud Tasks Schema
+description: JSON Schema for Google Cloud Tasks API resources.
+type: object
+$defs:
+  Queue:
+    type: object
+    title: Queue
+    description: A Cloud Tasks queue configuration.
+    properties:
+      name:
+        type: string
+        description: >-
+          The queue name in the format
+          projects/{project}/locations/{location}/queues/{queue}.
+      rateLimits:
+        $ref: '#/$defs/RateLimits'
+      retryConfig:
+        $ref: '#/$defs/RetryConfig'
+      state:
+        type: string
+        description: The current state of the queue.
+        enum:
+          - STATE_UNSPECIFIED
+          - RUNNING
+          - PAUSED
+          - DISABLED
+    required:
+      - name
+  RateLimits:
+    type: object
+    title: Rate Limits
+    description: Rate limiting configuration for a queue.
+    properties:
+      maxDispatchesPerSecond:
+        type: number
+        description: Maximum rate at which tasks are dispatched from this queue.
+      maxBurstSize:
+        type: integer
+        description: Maximum number of tasks that can be dispatched in a burst.
+      maxConcurrentDispatches:
+        type: integer
+        description: Maximum number of tasks that can run concurrently.
+  RetryConfig:
+    type: object
+    title: Retry Config
+    description: Retry configuration for tasks in a queue.
+    properties:
+      maxAttempts:
+        type: integer
+        description: Maximum number of attempts for a task.
+      maxRetryDuration:
+        type: string
+        description: Maximum time to retry a failed task.
+      minBackoff:
+        type: string
+        description: Minimum backoff time between retries.
+      maxBackoff:
+        type: string
+        description: Maximum backoff time between retries.
+      maxDoublings:
+        type: integer
+        description: Maximum number of times the backoff interval is doubled.
+  Task:
+    type: object
+    title: Task
+    description: A Cloud Tasks task.
+    properties:
+      name:
+        type: string
+        description: >-
+          The task name in the format
+          projects/{project}/locations/{location}/queues/{queue}/tasks/{task}.
+      httpRequest:
+        $ref: '#/$defs/HttpRequest'
+      scheduleTime:
+        type: string
+        format: date-time
+        description: The time when the task is scheduled to be attempted.
+      createTime:
+        type: string
+        format: date-time
+        description: The time when the task was created.
+      dispatchCount:
+        type: integer
+        description: Number of times the task has been dispatched.
+      responseCount:
+        type: integer
+        description: Number of responses received from the task target.
+    required:
+      - name
+  HttpRequest:
+    type: object
+    title: HTTP Request
+    description: HTTP request configuration for a task.
+    properties:
+      url:
+        type: string
+        format: uri
+        description: The full URL of the HTTP request target.
+      httpMethod:
+        type: string
+        description: The HTTP method to use for the request.
+        enum:
+          - HTTP_METHOD_UNSPECIFIED
+          - POST
+          - GET
+          - HEAD
+          - PUT
+          - DELETE
+          - PATCH
+          - OPTIONS
+      headers:
+        type: object
+        additionalProperties:
+          type: string
+        description: HTTP request headers.
+      body:
+        type: string
+        description: HTTP request body encoded in base64.
+    required:
+      - url
