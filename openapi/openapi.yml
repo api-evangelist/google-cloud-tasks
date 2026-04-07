@@ -15,7 +15,7 @@ paths:
   /v2/projects/{project}/locations/{location}/queues:
     get:
       operationId: listQueues
-      summary: List queues
+      summary: Google Cloud Tasks List queues
       description: Lists queues in a project and location.
       parameters:
         - name: project
@@ -37,7 +37,7 @@ paths:
                 $ref: '#/components/schemas/ListQueuesResponse'
     post:
       operationId: createQueue
-      summary: Create a queue
+      summary: Google Cloud Tasks Create a queue
       description: Creates a queue in the specified project and location.
       parameters:
         - name: project
@@ -66,7 +66,7 @@ paths:
   /v2/projects/{project}/locations/{location}/queues/{queue}:
     get:
       operationId: getQueue
-      summary: Get a queue
+      summary: Google Cloud Tasks Get a queue
       description: Gets a queue configuration.
       parameters:
         - name: project
@@ -93,7 +93,7 @@ paths:
                 $ref: '#/components/schemas/Queue'
     patch:
       operationId: updateQueue
-      summary: Update a queue
+      summary: Google Cloud Tasks Update a queue
       description: Updates a queue configuration.
       parameters:
         - name: project
@@ -126,7 +126,7 @@ paths:
                 $ref: '#/components/schemas/Queue'
     delete:
       operationId: deleteQueue
-      summary: Delete a queue
+      summary: Google Cloud Tasks Delete a queue
       description: Deletes a queue and all of its tasks.
       parameters:
         - name: project
@@ -150,7 +150,7 @@ paths:
   /v2/projects/{project}/locations/{location}/queues/{queue}/tasks:
     get:
       operationId: listTasks
-      summary: List tasks
+      summary: Google Cloud Tasks List tasks
       description: Lists the tasks in a queue.
       parameters:
         - name: project
@@ -177,7 +177,7 @@ paths:
                 $ref: '#/components/schemas/ListTasksResponse'
     post:
       operationId: createTask
-      summary: Create a task
+      summary: Google Cloud Tasks Create a task
       description: Creates a task and adds it to a queue.
       parameters:
         - name: project
@@ -211,7 +211,7 @@ paths:
   /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:
     get:
       operationId: getTask
-      summary: Get a task
+      summary: Google Cloud Tasks Get a task
       description: Gets a specific task.
       parameters:
         - name: project
@@ -243,7 +243,7 @@ paths:
                 $ref: '#/components/schemas/Task'
     delete:
       operationId: deleteTask
-      summary: Delete a task
+      summary: Google Cloud Tasks Delete a task
       description: Deletes a task from a queue.
       parameters:
         - name: project
@@ -272,7 +272,7 @@ paths:
   /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run:
     post:
       operationId: runTask
-      summary: Run a task
+      summary: Google Cloud Tasks Run a task
       description: Forces a task to run now.
       parameters:
         - name: project
