@@ -35,6 +35,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListQueuesResponse'
+      tags:
+        - Projects
     post:
       operationId: createQueue
       summary: Google Cloud Tasks Create a queue
@@ -63,6 +65,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Queue'
+      tags:
+        - Projects
   /v2/projects/{project}/locations/{location}/queues/{queue}:
     get:
       operationId: getQueue
@@ -91,6 +95,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Queue'
+      tags:
+        - Projects
     patch:
       operationId: updateQueue
       summary: Google Cloud Tasks Update a queue
@@ -124,6 +130,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Queue'
+      tags:
+        - Projects
     delete:
       operationId: deleteQueue
       summary: Google Cloud Tasks Delete a queue
@@ -147,6 +155,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+        - Projects
   /v2/projects/{project}/locations/{location}/queues/{queue}/tasks:
     get:
       operationId: listTasks
@@ -175,6 +185,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListTasksResponse'
+      tags:
+        - Projects
     post:
       operationId: createTask
       summary: Google Cloud Tasks Create a task
@@ -208,6 +220,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
+      tags:
+        - Projects
   /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:
     get:
       operationId: getTask
@@ -241,6 +255,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
+      tags:
+        - Projects
     delete:
       operationId: deleteTask
       summary: Google Cloud Tasks Delete a task
@@ -269,6 +285,8 @@ paths:
       responses:
         '200':
           description: Successful response
+      tags:
+        - Projects
   /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run:
     post:
       operationId: runTask
@@ -302,6 +320,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
+      tags:
+        - Projects
 components:
   schemas:
     Queue:
@@ -414,3 +434,5 @@ components:
             $ref: '#/components/schemas/Task'
         nextPageToken:
           type: string
+tags:
+  - name: Projects

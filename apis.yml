@@ -14,12 +14,12 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 type: Index
 tags:
-  - Tasks
-  - Queues
   - Asynchronous
   - Background Jobs
   - Distributed Systems
   - Google Cloud
+  - Queues
+  - Tasks
 apis:
   - name: Google Cloud Tasks API
     description: >-
@@ -29,9 +29,9 @@ apis:
     humanURL: https://cloud.google.com/tasks/docs
     baseURL: https://cloudtasks.googleapis.com
     tags:
-      - Tasks
-      - Queues
       - Asynchronous Processing
+      - Queues
+      - Tasks
     properties:
       - type: Documentation
         url: https://cloud.google.com/tasks/docs/reference/rest
