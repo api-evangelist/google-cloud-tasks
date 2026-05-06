@@ -1,0 +1,676 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Tasks API
+  description: The Cloud Tasks API enables management of distributed task execution. It allows you to create queues, enqueue
+    tasks, and configure retry and rate limiting behavior for tasks targeting App Engine or arbitrary HTTP endpoints.
+  tags:
+  - Google
+  - Cloud
+  - Tasks
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-tasks
+    baseUri: https://cloudtasks.googleapis.com
+    description: Google Cloud Tasks API HTTP API.
+    resources:
+    - name: v2-projects-project-locations-location-queues
+      path: /v2/projects/{project}/locations/{location}/queues
+      operations:
+      - name: listqueues
+        method: GET
+        description: Google Cloud Tasks List queues
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createqueue
+        method: POST
+        description: Google Cloud Tasks Create a queue
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-project-locations-location-queues-qu
+      path: /v2/projects/{project}/locations/{location}/queues/{queue}
+      operations:
+      - name: getqueue
+        method: GET
+        description: Google Cloud Tasks Get a queue
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatequeue
+        method: PATCH
+        description: Google Cloud Tasks Update a queue
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletequeue
+        method: DELETE
+        description: Google Cloud Tasks Delete a queue
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-project-locations-location-queues-qu
+      path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks
+      operations:
+      - name: listtasks
+        method: GET
+        description: Google Cloud Tasks List tasks
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtask
+        method: POST
+        description: Google Cloud Tasks Create a task
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-project-locations-location-queues-qu
+      path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
+      operations:
+      - name: gettask
+        method: GET
+        description: Google Cloud Tasks Get a task
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        - name: task
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletetask
+        method: DELETE
+        description: Google Cloud Tasks Delete a task
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        - name: task
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v2-projects-project-locations-location-queues-qu
+      path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run
+      operations:
+      - name: runtask
+        method: POST
+        description: Google Cloud Tasks Run a task
+        inputParameters:
+        - name: project
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: queue
+          in: path
+          type: string
+          required: true
+        - name: task
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-tasks-rest
+    description: REST adapter for Google Cloud Tasks API.
+    resources:
+    - path: /v2/projects/{project}/locations/{location}/queues
+      name: listqueues
+      operations:
+      - method: GET
+        name: listqueues
+        description: Google Cloud Tasks List queues
+        call: google-cloud-tasks.listqueues
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues
+      name: createqueue
+      operations:
+      - method: POST
+        name: createqueue
+        description: Google Cloud Tasks Create a queue
+        call: google-cloud-tasks.createqueue
+        with:
+          project: rest.project
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}
+      name: getqueue
+      operations:
+      - method: GET
+        name: getqueue
+        description: Google Cloud Tasks Get a queue
+        call: google-cloud-tasks.getqueue
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}
+      name: updatequeue
+      operations:
+      - method: PATCH
+        name: updatequeue
+        description: Google Cloud Tasks Update a queue
+        call: google-cloud-tasks.updatequeue
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}
+      name: deletequeue
+      operations:
+      - method: DELETE
+        name: deletequeue
+        description: Google Cloud Tasks Delete a queue
+        call: google-cloud-tasks.deletequeue
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks
+      name: listtasks
+      operations:
+      - method: GET
+        name: listtasks
+        description: Google Cloud Tasks List tasks
+        call: google-cloud-tasks.listtasks
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks
+      name: createtask
+      operations:
+      - method: POST
+        name: createtask
+        description: Google Cloud Tasks Create a task
+        call: google-cloud-tasks.createtask
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
+      name: gettask
+      operations:
+      - method: GET
+        name: gettask
+        description: Google Cloud Tasks Get a task
+        call: google-cloud-tasks.gettask
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+          task: rest.task
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
+      name: deletetask
+      operations:
+      - method: DELETE
+        name: deletetask
+        description: Google Cloud Tasks Delete a task
+        call: google-cloud-tasks.deletetask
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+          task: rest.task
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run
+      name: runtask
+      operations:
+      - method: POST
+        name: runtask
+        description: Google Cloud Tasks Run a task
+        call: google-cloud-tasks.runtask
+        with:
+          project: rest.project
+          location: rest.location
+          queue: rest.queue
+          task: rest.task
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-tasks-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Tasks API for AI agent use.
+    tools:
+    - name: listqueues
+      description: Google Cloud Tasks List queues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-tasks.listqueues
+      with:
+        project: tools.project
+        location: tools.location
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createqueue
+      description: Google Cloud Tasks Create a queue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-tasks.createqueue
+      with:
+        project: tools.project
+        location: tools.location
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getqueue
+      description: Google Cloud Tasks Get a queue
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-tasks.getqueue
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatequeue
+      description: Google Cloud Tasks Update a queue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-tasks.updatequeue
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletequeue
+      description: Google Cloud Tasks Delete a queue
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-tasks.deletequeue
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtasks
+      description: Google Cloud Tasks List tasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-tasks.listtasks
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createtask
+      description: Google Cloud Tasks Create a task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-tasks.createtask
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettask
+      description: Google Cloud Tasks Get a task
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-tasks.gettask
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+        task: tools.task
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      - name: task
+        type: string
+        description: task
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletetask
+      description: Google Cloud Tasks Delete a task
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-tasks.deletetask
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+        task: tools.task
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      - name: task
+        type: string
+        description: task
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: runtask
+      description: Google Cloud Tasks Run a task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-tasks.runtask
+      with:
+        project: tools.project
+        location: tools.location
+        queue: tools.queue
+        task: tools.task
+      inputParameters:
+      - name: project
+        type: string
+        description: project
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: queue
+        type: string
+        description: queue
+        required: true
+      - name: task
+        type: string
+        description: task
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
