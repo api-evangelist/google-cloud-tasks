@@ -39,14 +39,14 @@ apis:
         url: openapi/openapi.yml
       - type: Authentication
         url: https://cloud.google.com/docs/authentication
-      - type: Getting Started
+      - type: GettingStarted
         url: https://cloud.google.com/tasks/docs/quickstart
       - type: JSONSchema
         url: json-schema/json-schema.yml
 common:
   - type: Portal
     url: https://cloud.google.com/tasks
-  - type: Getting Started
+  - type: GettingStarted
     url: https://cloud.google.com/tasks/docs/quickstart
   - type: Documentation
     url: https://cloud.google.com/tasks/docs
@@ -54,11 +54,11 @@ common:
     url: https://cloud.google.com/docs/authentication
   - type: Pricing
     url: https://cloud.google.com/tasks/pricing
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://cloud.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com/
   - type: Support
     url: https://cloud.google.com/tasks/docs/support
