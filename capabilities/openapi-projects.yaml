@@ -1,21 +1,23 @@
 naftiko: 1.0.0-alpha2
 info:
-  label: Google Cloud Tasks API
-  description: The Cloud Tasks API enables management of distributed task execution. It allows you to create queues, enqueue
-    tasks, and configure retry and rate limiting behavior for tasks targeting App Engine or arbitrary HTTP endpoints.
+  label: Google Cloud Tasks API — Projects
+  description: 'Google Cloud Tasks API — Projects. 10 operations. Lead operation: Google Cloud Tasks List queues. Self-contained
+    Naftiko capability covering one Google Cloud Tasks business surface.'
   tags:
-  - Google
-  - Cloud
-  - Tasks
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Google Cloud Tasks
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_TASKS_API_KEY: GOOGLE_CLOUD_TASKS_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: google-cloud-tasks
+    namespace: openapi-projects
     baseUri: https://cloudtasks.googleapis.com
-    description: Google Cloud Tasks API HTTP API.
+    description: Google Cloud Tasks API — Projects business capability. Self-contained, no shared references.
     resources:
     - name: v2-projects-project-locations-location-queues
       path: /v2/projects/{project}/locations/{location}/queues
@@ -23,6 +25,11 @@ capability:
       - name: listqueues
         method: GET
         description: Google Cloud Tasks List queues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -32,14 +39,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: createqueue
         method: POST
         description: Google Cloud Tasks Create a queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -49,17 +56,22 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
-    - name: v2-projects-project-locations-location-queues-qu
+          description: Request body (JSON).
+          required: true
+    - name: v2-projects-project-locations-location-queues-queue
       path: /v2/projects/{project}/locations/{location}/queues/{queue}
       operations:
       - name: getqueue
         method: GET
         description: Google Cloud Tasks Get a queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -73,14 +85,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: updatequeue
         method: PATCH
         description: Google Cloud Tasks Update a queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -94,14 +106,19 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
+          description: Request body (JSON).
+          required: true
       - name: deletequeue
         method: DELETE
         description: Google Cloud Tasks Delete a queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -115,17 +132,17 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: v2-projects-project-locations-location-queues-qu
+    - name: v2-projects-project-locations-location-queues-queue-tasks
       path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks
       operations:
       - name: listtasks
         method: GET
         description: Google Cloud Tasks List tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -139,14 +156,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: createtask
         method: POST
         description: Google Cloud Tasks Create a task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -160,17 +177,22 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
+        - name: body
+          in: body
           type: object
-          value: $.
-    - name: v2-projects-project-locations-location-queues-qu
+          description: Request body (JSON).
+          required: true
+    - name: v2-projects-project-locations-location-queues-queue-tasks-task
       path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
       operations:
       - name: gettask
         method: GET
         description: Google Cloud Tasks Get a task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -188,14 +210,14 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: deletetask
         method: DELETE
         description: Google Cloud Tasks Delete a task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -213,17 +235,17 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
-    - name: v2-projects-project-locations-location-queues-qu
+    - name: v2-projects-project-locations-location-queues-queue-tasks-task}:run
       path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run
       operations:
       - name: runtask
         method: POST
         description: Google Cloud Tasks Run a task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: project
           in: path
@@ -241,50 +263,46 @@ capability:
           in: path
           type: string
           required: true
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
   exposes:
   - type: rest
+    namespace: openapi-projects-rest
     port: 8080
-    namespace: google-cloud-tasks-rest
-    description: REST adapter for Google Cloud Tasks API.
+    description: REST adapter for Google Cloud Tasks API — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
     resources:
-    - path: /v2/projects/{project}/locations/{location}/queues
-      name: listqueues
+    - path: /v1/v2/projects/{project}/locations/{location}/queues
+      name: v2-projects-project-locations-location-queues
+      description: REST surface for v2-projects-project-locations-location-queues.
       operations:
       - method: GET
         name: listqueues
         description: Google Cloud Tasks List queues
-        call: google-cloud-tasks.listqueues
+        call: openapi-projects.listqueues
         with:
           project: rest.project
           location: rest.location
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues
-      name: createqueue
-      operations:
       - method: POST
         name: createqueue
         description: Google Cloud Tasks Create a queue
-        call: google-cloud-tasks.createqueue
+        call: openapi-projects.createqueue
         with:
           project: rest.project
           location: rest.location
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}
-      name: getqueue
+    - path: /v1/v2/projects/{project}/locations/{location}/queues/{queue}
+      name: v2-projects-project-locations-location-queues-queue
+      description: REST surface for v2-projects-project-locations-location-queues-queue.
       operations:
       - method: GET
         name: getqueue
         description: Google Cloud Tasks Get a queue
-        call: google-cloud-tasks.getqueue
+        call: openapi-projects.getqueue
         with:
           project: rest.project
           location: rest.location
@@ -292,27 +310,22 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}
-      name: updatequeue
-      operations:
       - method: PATCH
         name: updatequeue
         description: Google Cloud Tasks Update a queue
-        call: google-cloud-tasks.updatequeue
+        call: openapi-projects.updatequeue
         with:
           project: rest.project
           location: rest.location
           queue: rest.queue
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}
-      name: deletequeue
-      operations:
       - method: DELETE
         name: deletequeue
         description: Google Cloud Tasks Delete a queue
-        call: google-cloud-tasks.deletequeue
+        call: openapi-projects.deletequeue
         with:
           project: rest.project
           location: rest.location
@@ -320,13 +333,14 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks
-      name: listtasks
+    - path: /v1/v2/projects/{project}/locations/{location}/queues/{queue}/tasks
+      name: v2-projects-project-locations-location-queues-queue-tasks
+      description: REST surface for v2-projects-project-locations-location-queues-queue-tasks.
       operations:
       - method: GET
         name: listtasks
         description: Google Cloud Tasks List tasks
-        call: google-cloud-tasks.listtasks
+        call: openapi-projects.listtasks
         with:
           project: rest.project
           location: rest.location
@@ -334,27 +348,26 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks
-      name: createtask
-      operations:
       - method: POST
         name: createtask
         description: Google Cloud Tasks Create a task
-        call: google-cloud-tasks.createtask
+        call: openapi-projects.createtask
         with:
           project: rest.project
           location: rest.location
           queue: rest.queue
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
-      name: gettask
+    - path: /v1/v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
+      name: v2-projects-project-locations-location-queues-queue-tasks-task
+      description: REST surface for v2-projects-project-locations-location-queues-queue-tasks-task.
       operations:
       - method: GET
         name: gettask
         description: Google Cloud Tasks Get a task
-        call: google-cloud-tasks.gettask
+        call: openapi-projects.gettask
         with:
           project: rest.project
           location: rest.location
@@ -363,13 +376,10 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}
-      name: deletetask
-      operations:
       - method: DELETE
         name: deletetask
         description: Google Cloud Tasks Delete a task
-        call: google-cloud-tasks.deletetask
+        call: openapi-projects.deletetask
         with:
           project: rest.project
           location: rest.location
@@ -378,13 +388,14 @@ capability:
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v2/projects/{project}/locations/{location}/queues/{queue}/tasks/{task}:run
-      name: runtask
+    - path: /v1/v2/projects/{project}/locations/{location}/queues/{queue}/tasks/task-run
+      name: v2-projects-project-locations-location-queues-queue-tasks-task-run
+      description: REST surface for v2-projects-project-locations-location-queues-queue-tasks-task}:run.
       operations:
       - method: POST
         name: runtask
         description: Google Cloud Tasks Run a task
-        call: google-cloud-tasks.runtask
+        call: openapi-projects.runtask
         with:
           project: rest.project
           location: rest.location
@@ -394,283 +405,153 @@ capability:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: openapi-projects-mcp
     port: 9090
-    namespace: google-cloud-tasks-mcp
     transport: http
-    description: MCP adapter for Google Cloud Tasks API for AI agent use.
+    description: MCP adapter for Google Cloud Tasks API — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
     tools:
-    - name: listqueues
+    - name: google-cloud-tasks-list-queues
       description: Google Cloud Tasks List queues
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-tasks.listqueues
+      call: openapi-projects.listqueues
       with:
         project: tools.project
         location: tools.location
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: createqueue
+    - name: google-cloud-tasks-create-queue
       description: Google Cloud Tasks Create a queue
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-tasks.createqueue
+      call: openapi-projects.createqueue
       with:
         project: tools.project
         location: tools.location
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: getqueue
+    - name: google-cloud-tasks-get-queue
       description: Google Cloud Tasks Get a queue
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-tasks.getqueue
+      call: openapi-projects.getqueue
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: updatequeue
+    - name: google-cloud-tasks-update-queue
       description: Google Cloud Tasks Update a queue
       hints:
         readOnly: false
         destructive: false
-        idempotent: false
-      call: google-cloud-tasks.updatequeue
+        idempotent: true
+      call: openapi-projects.updatequeue
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: deletequeue
+    - name: google-cloud-tasks-delete-queue
       description: Google Cloud Tasks Delete a queue
       hints:
         readOnly: false
         destructive: true
         idempotent: true
-      call: google-cloud-tasks.deletequeue
+      call: openapi-projects.deletequeue
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: listtasks
+    - name: google-cloud-tasks-list-tasks
       description: Google Cloud Tasks List tasks
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-tasks.listtasks
+      call: openapi-projects.listtasks
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: createtask
+    - name: google-cloud-tasks-create-task
       description: Google Cloud Tasks Create a task
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-tasks.createtask
+      call: openapi-projects.createtask
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: gettask
+    - name: google-cloud-tasks-get-task
       description: Google Cloud Tasks Get a task
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-cloud-tasks.gettask
+      call: openapi-projects.gettask
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
         task: tools.task
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
-      - name: task
-        type: string
-        description: task
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: deletetask
+    - name: google-cloud-tasks-delete-task
       description: Google Cloud Tasks Delete a task
       hints:
         readOnly: false
         destructive: true
         idempotent: true
-      call: google-cloud-tasks.deletetask
+      call: openapi-projects.deletetask
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
         task: tools.task
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
-      - name: task
-        type: string
-        description: task
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: runtask
+    - name: google-cloud-tasks-run-task
       description: Google Cloud Tasks Run a task
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-cloud-tasks.runtask
+      call: openapi-projects.runtask
       with:
         project: tools.project
         location: tools.location
         queue: tools.queue
         task: tools.task
-      inputParameters:
-      - name: project
-        type: string
-        description: project
-        required: true
-      - name: location
-        type: string
-        description: location
-        required: true
-      - name: queue
-        type: string
-        description: queue
-        required: true
-      - name: task
-        type: string
-        description: task
-        required: true
       outputParameters:
       - type: object
         mapping: $.
