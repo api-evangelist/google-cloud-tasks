@@ -11,60 +11,62 @@ modified: '2026-05-19'
 specificationVersion: '0.19'
 type: Index
 tags:
-- Asynchronous
-- Background Jobs
-- Distributed Systems
-- Google Cloud
-- Queues
-- Tasks
-apis:
-- name: Google Cloud Tasks API
-  description: The Cloud Tasks API allows you to create and manage task queues, enqueue tasks for asynchronous processing,
-    and configure retry and rate limiting policies. Tasks can target App Engine handlers or any HTTP endpoint.
-  humanURL: https://cloud.google.com/tasks/docs
-  baseURL: https://cloudtasks.googleapis.com
-  tags:
-  - Asynchronous Processing
+  - Asynchronous
+  - Background Jobs
+  - Distributed Systems
+  - Google Cloud
   - Queues
   - Tasks
-  properties:
-  - type: Documentation
-    url: https://cloud.google.com/tasks/docs/reference/rest
-  - type: OpenAPI
-    url: openapi/openapi.yml
-  - type: Authentication
-    url: https://cloud.google.com/docs/authentication
+apis:
+  - name: Google Cloud Tasks API
+    description: The Cloud Tasks API allows you to create and manage task queues, enqueue tasks for asynchronous processing,
+      and configure retry and rate limiting policies. Tasks can target App Engine handlers or any HTTP endpoint.
+    humanURL: https://cloud.google.com/tasks/docs
+    baseURL: https://cloudtasks.googleapis.com
+    tags:
+    - Asynchronous Processing
+    - Queues
+    - Tasks
+    properties:
+    - type: Documentation
+      url: https://cloud.google.com/tasks/docs/reference/rest
+    - type: OpenAPI
+      url: openapi/openapi.yml
+    - type: Authentication
+      url: https://cloud.google.com/docs/authentication
+    - type: GettingStarted
+      url: https://cloud.google.com/tasks/docs/quickstart
+    - type: JSONSchema
+      url: json-schema/json-schema.yml
+    - type: NaftikoCapability
+      url: capabilities/openapi-projects.yaml
+common:
+  - type: GitHubOrganization
+    url: https://github.com/GoogleCloudPlatform
+  - type: Portal
+    url: https://cloud.google.com/tasks
   - type: GettingStarted
     url: https://cloud.google.com/tasks/docs/quickstart
-  - type: JSONSchema
-    url: json-schema/json-schema.yml
-  - type: NaftikoCapability
-    url: capabilities/openapi-projects.yaml
-common:
-- type: Portal
-  url: https://cloud.google.com/tasks
-- type: GettingStarted
-  url: https://cloud.google.com/tasks/docs/quickstart
-- type: Documentation
-  url: https://cloud.google.com/tasks/docs
-- type: Authentication
-  url: https://cloud.google.com/docs/authentication
-- type: Pricing
-  url: https://cloud.google.com/tasks/pricing
-- type: TermsOfService
-  url: https://cloud.google.com/terms
-- type: PrivacyPolicy
-  url: https://policies.google.com/privacy
-- type: StatusPage
-  url: https://status.cloud.google.com/
-- type: Support
-  url: https://cloud.google.com/tasks/docs/support
-- type: JSONLD
-  url: json-ld/json-ld.json
-- type: Integrations
-  url: https://cloud.google.com/marketplace
+  - type: Documentation
+    url: https://cloud.google.com/tasks/docs
+  - type: Authentication
+    url: https://cloud.google.com/docs/authentication
+  - type: Pricing
+    url: https://cloud.google.com/tasks/pricing
+  - type: TermsOfService
+    url: https://cloud.google.com/terms
+  - type: PrivacyPolicy
+    url: https://policies.google.com/privacy
+  - type: StatusPage
+    url: https://status.cloud.google.com/
+  - type: Support
+    url: https://cloud.google.com/tasks/docs/support
+  - type: JSONLD
+    url: json-ld/json-ld.json
+  - type: Integrations
+    url: https://cloud.google.com/marketplace
 integrations:
-- name: Become a Partner
+  - name: Become a Partner
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
