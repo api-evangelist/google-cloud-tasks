@@ -41,6 +41,10 @@ apis:
       - type: JSONSchema
         url: json-schema/json-schema.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-tasks-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-tasks-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/GoogleCloudPlatform
   - type: Portal
@@ -65,6 +69,8 @@ common:
     url: json-ld/json-ld.json
   - type: Integrations
     url: https://cloud.google.com/marketplace
+  - url: https://cloud.google.com/feeds/cloud-tasks-release-notes.xml
+    type: Blog
 integrations:
   - name: Become a Partner
 maintainers:
