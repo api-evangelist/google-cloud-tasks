@@ -1,0 +1,14 @@
+{
+  "repo": "google-cloud-tasks",
+  "feeds": [
+    {
+      "source": "https://cloud.google.com/feeds/cloud-tasks-release-notes.xml",
+      "feed_url": "https://cloud.google.com/feeds/cloud-tasks-release-notes.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 19
+}
