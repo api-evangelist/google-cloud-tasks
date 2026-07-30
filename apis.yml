@@ -5,7 +5,19 @@ description: >-
   create and dispatch tasks to worker services running on App Engine or any arbitrary HTTP endpoint, with automatic rate
   limiting, retry logic, and task deduplication. It provides a fully managed service for asynchronous task execution,
   allowing you to offload work from your main application and process it reliably in the background.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-tasks.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-tasks/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -19,28 +31,27 @@ tags:
   - Queues
   - Tasks
 apis:
-  - name: Google Cloud Tasks API
-    description: >-
-      The Cloud Tasks API allows you to create and manage task queues, enqueue tasks for asynchronous processing, and
-      configure retry and rate limiting policies. Tasks can target App Engine handlers or any HTTP endpoint.
-    humanURL: https://cloud.google.com/tasks/docs
-    baseURL: https://cloudtasks.googleapis.com
-    tags:
-      - Asynchronous Processing
-      - Queues
-      - Tasks
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/tasks/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/docs/authentication
-      - type: GettingStarted
-        url: https://cloud.google.com/tasks/docs/quickstart
-      - type: JSONSchema
-        url: json-schema/json-schema.yml
+- aid: google-cloud-tasks:google-cloud-tasks-projects-api
+  name: Google Cloud Tasks Projects API
+  description: The Projects API from Google Cloud Tasks — 5 operation(s) for projects.
+  humanURL: https://cloud.google.com/tasks/docs
+  baseURL: https://cloudtasks.googleapis.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-tasks-projects-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/tasks/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/docs/authentication
+  - type: GettingStarted
+    url: https://cloud.google.com/tasks/docs/quickstart
+  - type: JSONSchema
+    url: json-schema/json-schema.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-tasks/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-tasks-agentic-access.yml
   - type: VulnerabilityDisclosure
