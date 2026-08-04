@@ -1,0 +1,1290 @@
+{
+  "info": {
+    "_postman_id": "ca1c9537-c863-4f91-a428-e014d60c9455",
+    "name": "Google Cloud Tasks Projects API",
+    "description": "The Cloud Tasks API enables management of distributed task execution. It allows you to create queues, enqueue tasks, and configure retry and rate limiting behavior for tasks targeting App Engine or arbitrary HTTP endpoints.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:48:38.000Z",
+    "updatedAt": "2026-07-28T01:48:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ca1c9537-c863-4f91-a428-e014d60c9455"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "locations",
+                  "item": [
+                    {
+                      "name": "{location}",
+                      "item": [
+                        {
+                          "name": "queues",
+                          "item": [
+                            {
+                              "name": "{queue}",
+                              "item": [
+                                {
+                                  "name": "tasks",
+                                  "item": [
+                                    {
+                                      "name": "{task}",
+                                      "item": [
+                                        {
+                                          "name": "Google Cloud Tasks Get a task",
+                                          "id": "42df87ad-e518-4efa-a897-0fd368e14fec",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks/:task",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v2",
+                                                "projects",
+                                                ":project",
+                                                "locations",
+                                                ":location",
+                                                "queues",
+                                                ":queue",
+                                                "tasks",
+                                                ":task"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "773242f9-88d8-4e76-b736-e9dcacba6375",
+                                                  "key": "project",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "fbfe3bfb-43ef-43dc-abae-132d90c1ebfd",
+                                                  "key": "location",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "bd0dd9ce-6150-4071-9b18-0935268a2722",
+                                                  "key": "queue",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "4b8d9fb4-3c90-4f0a-aaeb-99e85c66051f",
+                                                  "key": "task",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            },
+                                            "description": "Gets a specific task."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "81558294-945d-4e72-a036-77bc6f1347e2",
+                                              "name": "Successful response",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks/:task",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "v2",
+                                                    "projects",
+                                                    ":project",
+                                                    "locations",
+                                                    ":location",
+                                                    "queues",
+                                                    ":queue",
+                                                    "tasks",
+                                                    ":task"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "project"
+                                                    },
+                                                    {
+                                                      "key": "location"
+                                                    },
+                                                    {
+                                                      "key": "queue"
+                                                    },
+                                                    {
+                                                      "key": "task"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"name\": \"<string>\",\n  \"httpRequest\": {\n    \"url\": \"<string>\",\n    \"httpMethod\": \"POST\",\n    \"headers\": {\n      \"cillum_c2\": \"<string>\",\n      \"ut_7\": \"<string>\",\n      \"aliqua7\": \"<string>\",\n      \"adipisicing_0c\": \"<string>\",\n      \"ipsum4b\": \"<string>\"\n    },\n    \"body\": \"<string>\"\n  },\n  \"scheduleTime\": \"<dateTime>\",\n  \"createTime\": \"<dateTime>\",\n  \"dispatchCount\": \"<integer>\",\n  \"responseCount\": \"<integer>\"\n}",
+                                              "createdAt": "2026-07-28T01:48:39.000Z",
+                                              "updatedAt": "2026-07-28T01:48:39.000Z",
+                                              "uid": "35240-81558294-945d-4e72-a036-77bc6f1347e2"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:48:39.000Z",
+                                          "updatedAt": "2026-07-28T01:48:39.000Z",
+                                          "uid": "35240-42df87ad-e518-4efa-a897-0fd368e14fec"
+                                        },
+                                        {
+                                          "name": "Google Cloud Tasks Delete a task",
+                                          "id": "2ff03c42-425d-43d8-9133-4d0688944729",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "DELETE",
+                                            "header": [],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks/:task",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v2",
+                                                "projects",
+                                                ":project",
+                                                "locations",
+                                                ":location",
+                                                "queues",
+                                                ":queue",
+                                                "tasks",
+                                                ":task"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "f05bdf99-c6bb-4fda-89ab-7d64125c52a1",
+                                                  "key": "project",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "84f9e39a-836e-4f1e-9999-b463082540aa",
+                                                  "key": "location",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "7a2e7d63-f55f-4d39-90db-0500e1d7e807",
+                                                  "key": "queue",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "ab963a89-ba64-4df7-aac7-9c1392a8bc01",
+                                                  "key": "task",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            },
+                                            "description": "Deletes a task from a queue."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "be21b801-4f5c-41a0-ac9d-3baac9763d16",
+                                              "name": "Successful response",
+                                              "originalRequest": {
+                                                "method": "DELETE",
+                                                "header": [],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks/:task",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "v2",
+                                                    "projects",
+                                                    ":project",
+                                                    "locations",
+                                                    ":location",
+                                                    "queues",
+                                                    ":queue",
+                                                    "tasks",
+                                                    ":task"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "project"
+                                                    },
+                                                    {
+                                                      "key": "location"
+                                                    },
+                                                    {
+                                                      "key": "queue"
+                                                    },
+                                                    {
+                                                      "key": "task"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "text",
+                                              "header": [],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": null,
+                                              "createdAt": "2026-07-28T01:48:39.000Z",
+                                              "updatedAt": "2026-07-28T01:48:39.000Z",
+                                              "uid": "35240-be21b801-4f5c-41a0-ac9d-3baac9763d16"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:48:39.000Z",
+                                          "updatedAt": "2026-07-28T01:48:39.000Z",
+                                          "uid": "35240-2ff03c42-425d-43d8-9133-4d0688944729"
+                                        }
+                                      ],
+                                      "id": "e9951d2a-f6f2-4299-9126-6955e86b5b4a",
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-e9951d2a-f6f2-4299-9126-6955e86b5b4a"
+                                    },
+                                    {
+                                      "name": "{task}:run",
+                                      "item": [
+                                        {
+                                          "name": "Google Cloud Tasks Run a task",
+                                          "id": "2965ca37-1de0-43b4-8e58-53c103429535",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks/{{task}}:run",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v2",
+                                                "projects",
+                                                ":project",
+                                                "locations",
+                                                ":location",
+                                                "queues",
+                                                ":queue",
+                                                "tasks",
+                                                "{{task}}:run"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "8f08411b-4185-4720-b944-254f39df263b",
+                                                  "key": "project",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "49cbe6d2-b83e-44f9-bf6e-dd9a6b3635c4",
+                                                  "key": "location",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                },
+                                                {
+                                                  "id": "516b561d-7fb9-4fbc-9be4-bbf2791b3886",
+                                                  "key": "queue",
+                                                  "value": "<string>",
+                                                  "description": "(Required) "
+                                                }
+                                              ]
+                                            },
+                                            "description": "Forces a task to run now."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "833c52a3-62fc-4e3b-ae7d-9ad68a88eeae",
+                                              "name": "Successful response",
+                                              "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks/{{task}}:run",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "v2",
+                                                    "projects",
+                                                    ":project",
+                                                    "locations",
+                                                    ":location",
+                                                    "queues",
+                                                    ":queue",
+                                                    "tasks",
+                                                    "{{task}}:run"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "project"
+                                                    },
+                                                    {
+                                                      "key": "location"
+                                                    },
+                                                    {
+                                                      "key": "queue"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"name\": \"<string>\",\n  \"httpRequest\": {\n    \"url\": \"<string>\",\n    \"httpMethod\": \"POST\",\n    \"headers\": {\n      \"cillum_c2\": \"<string>\",\n      \"ut_7\": \"<string>\",\n      \"aliqua7\": \"<string>\",\n      \"adipisicing_0c\": \"<string>\",\n      \"ipsum4b\": \"<string>\"\n    },\n    \"body\": \"<string>\"\n  },\n  \"scheduleTime\": \"<dateTime>\",\n  \"createTime\": \"<dateTime>\",\n  \"dispatchCount\": \"<integer>\",\n  \"responseCount\": \"<integer>\"\n}",
+                                              "createdAt": "2026-07-28T01:48:39.000Z",
+                                              "updatedAt": "2026-07-28T01:48:39.000Z",
+                                              "uid": "35240-833c52a3-62fc-4e3b-ae7d-9ad68a88eeae"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:48:39.000Z",
+                                          "updatedAt": "2026-07-28T01:48:39.000Z",
+                                          "uid": "35240-2965ca37-1de0-43b4-8e58-53c103429535"
+                                        }
+                                      ],
+                                      "id": "8dd375d3-e415-422f-86b6-abaf4b5789f9",
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-8dd375d3-e415-422f-86b6-abaf4b5789f9"
+                                    },
+                                    {
+                                      "name": "Google Cloud Tasks List tasks",
+                                      "id": "01a497bd-0d67-4448-8b0a-6ef34267a47d",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "projects",
+                                            ":project",
+                                            "locations",
+                                            ":location",
+                                            "queues",
+                                            ":queue",
+                                            "tasks"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "f8c33824-9872-4fcd-8b85-7264f98abaf1",
+                                              "key": "project",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "f06edb56-4809-43bd-a32f-2f72f8a84001",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "55542dc8-c670-4098-96d1-8652529c2fe2",
+                                              "key": "queue",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Lists the tasks in a queue."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "beb14eda-aae4-437c-b5a5-8d23b3fde84f",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v2",
+                                                "projects",
+                                                ":project",
+                                                "locations",
+                                                ":location",
+                                                "queues",
+                                                ":queue",
+                                                "tasks"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "project"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "queue"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"tasks\": [\n    {\n      \"name\": \"<string>\",\n      \"httpRequest\": {\n        \"url\": \"<string>\",\n        \"httpMethod\": \"HTTP_METHOD_UNSPECIFIED\",\n        \"headers\": {\n          \"voluptatea\": \"<string>\"\n        },\n        \"body\": \"<string>\"\n      },\n      \"scheduleTime\": \"<dateTime>\",\n      \"createTime\": \"<dateTime>\",\n      \"dispatchCount\": \"<integer>\",\n      \"responseCount\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"httpRequest\": {\n        \"url\": \"<string>\",\n        \"httpMethod\": \"DELETE\",\n        \"headers\": {\n          \"nostrud8\": \"<string>\",\n          \"dolore56\": \"<string>\"\n        },\n        \"body\": \"<string>\"\n      },\n      \"scheduleTime\": \"<dateTime>\",\n      \"createTime\": \"<dateTime>\",\n      \"dispatchCount\": \"<integer>\",\n      \"responseCount\": \"<integer>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:48:39.000Z",
+                                          "updatedAt": "2026-07-28T01:48:39.000Z",
+                                          "uid": "35240-beb14eda-aae4-437c-b5a5-8d23b3fde84f"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-01a497bd-0d67-4448-8b0a-6ef34267a47d"
+                                    },
+                                    {
+                                      "name": "Google Cloud Tasks Create a task",
+                                      "id": "40f11732-65a3-4445-89aa-a4b1ccaf5ba8",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"task\": {\n    \"name\": \"<string>\",\n    \"httpRequest\": {\n      \"url\": \"<string>\",\n      \"httpMethod\": \"POST\",\n      \"headers\": {\n        \"sint_24\": \"<string>\",\n        \"minim9\": \"<string>\"\n      },\n      \"body\": \"<string>\"\n    },\n    \"scheduleTime\": \"<dateTime>\",\n    \"createTime\": \"<dateTime>\",\n    \"dispatchCount\": \"<integer>\",\n    \"responseCount\": \"<integer>\"\n  },\n  \"responseView\": \"FULL\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "projects",
+                                            ":project",
+                                            "locations",
+                                            ":location",
+                                            "queues",
+                                            ":queue",
+                                            "tasks"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "745e1441-4dc1-4972-8744-49a76ad74d0b",
+                                              "key": "project",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "c4a3e5ea-92fb-4508-a2f3-2c6d45cfa333",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "4b05b5e1-8b7e-49f6-8d2b-f95aebfaedbb",
+                                              "key": "queue",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Creates a task and adds it to a queue."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "dbdf8eee-2891-4c49-afcc-662bcc0aa1ac",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"task\": {\n    \"name\": \"<string>\",\n    \"httpRequest\": {\n      \"url\": \"<string>\",\n      \"httpMethod\": \"POST\",\n      \"headers\": {\n        \"sint_24\": \"<string>\",\n        \"minim9\": \"<string>\"\n      },\n      \"body\": \"<string>\"\n    },\n    \"scheduleTime\": \"<dateTime>\",\n    \"createTime\": \"<dateTime>\",\n    \"dispatchCount\": \"<integer>\",\n    \"responseCount\": \"<integer>\"\n  },\n  \"responseView\": \"FULL\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue/tasks",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v2",
+                                                "projects",
+                                                ":project",
+                                                "locations",
+                                                ":location",
+                                                "queues",
+                                                ":queue",
+                                                "tasks"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "project"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "queue"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"name\": \"<string>\",\n  \"httpRequest\": {\n    \"url\": \"<string>\",\n    \"httpMethod\": \"POST\",\n    \"headers\": {\n      \"cillum_c2\": \"<string>\",\n      \"ut_7\": \"<string>\",\n      \"aliqua7\": \"<string>\",\n      \"adipisicing_0c\": \"<string>\",\n      \"ipsum4b\": \"<string>\"\n    },\n    \"body\": \"<string>\"\n  },\n  \"scheduleTime\": \"<dateTime>\",\n  \"createTime\": \"<dateTime>\",\n  \"dispatchCount\": \"<integer>\",\n  \"responseCount\": \"<integer>\"\n}",
+                                          "createdAt": "2026-07-28T01:48:39.000Z",
+                                          "updatedAt": "2026-07-28T01:48:39.000Z",
+                                          "uid": "35240-dbdf8eee-2891-4c49-afcc-662bcc0aa1ac"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-40f11732-65a3-4445-89aa-a4b1ccaf5ba8"
+                                    }
+                                  ],
+                                  "id": "526c9585-1d92-47fd-a877-e5acfdb67c5d",
+                                  "createdAt": "2026-07-28T01:48:39.000Z",
+                                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                                  "uid": "35240-526c9585-1d92-47fd-a877-e5acfdb67c5d"
+                                },
+                                {
+                                  "name": "Google Cloud Tasks Get a queue",
+                                  "id": "00b25d5a-501d-4ae2-80a7-66beb8803bce",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "queues",
+                                        ":queue"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "ff02bc19-29b0-4df9-abba-782cbeee3688",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "92b3145d-95db-4236-bb0d-f869cc5215ff",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "bc0f78bd-f00e-4d8f-a773-53b732f73dfe",
+                                          "key": "queue",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gets a queue configuration."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "8fd80813-6848-4006-b487-3ea6e5ce1466",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "projects",
+                                            ":project",
+                                            "locations",
+                                            ":location",
+                                            "queues",
+                                            ":queue"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "queue"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-8fd80813-6848-4006-b487-3ea6e5ce1466"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:48:39.000Z",
+                                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                                  "uid": "35240-00b25d5a-501d-4ae2-80a7-66beb8803bce"
+                                },
+                                {
+                                  "name": "Google Cloud Tasks Update a queue",
+                                  "id": "0fc9678e-a4c3-4f0e-86c2-70437439f5bb",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "queues",
+                                        ":queue"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "8bc39521-c886-4507-8f25-9201aa504d5f",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "4b97bf5d-91a1-46b3-b9ce-306029b49f7e",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "4425d54b-8171-4aa6-b9f1-ebc34c8e2dcd",
+                                          "key": "queue",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates a queue configuration."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "97bf14ee-5185-47d2-a3c6-6deb248a03fb",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "projects",
+                                            ":project",
+                                            "locations",
+                                            ":location",
+                                            "queues",
+                                            ":queue"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "queue"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-97bf14ee-5185-47d2-a3c6-6deb248a03fb"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:48:39.000Z",
+                                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                                  "uid": "35240-0fc9678e-a4c3-4f0e-86c2-70437439f5bb"
+                                },
+                                {
+                                  "name": "Google Cloud Tasks Delete a queue",
+                                  "id": "a4dd8e7d-de97-4de0-9a4b-12a9f3b3a8e3",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "queues",
+                                        ":queue"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "f2c5dad7-c720-4e12-81aa-cadb93277e30",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "ea998352-f54a-4199-a642-cd1e9b759f11",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "48cbd74a-c556-471e-aabd-147cf35782fd",
+                                          "key": "queue",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Deletes a queue and all of its tasks."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "4c164049-eb52-4b92-a576-cd5c93319ade",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues/:queue",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "projects",
+                                            ":project",
+                                            "locations",
+                                            ":location",
+                                            "queues",
+                                            ":queue"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "queue"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:48:39.000Z",
+                                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                                      "uid": "35240-4c164049-eb52-4b92-a576-cd5c93319ade"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:48:39.000Z",
+                                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                                  "uid": "35240-a4dd8e7d-de97-4de0-9a4b-12a9f3b3a8e3"
+                                }
+                              ],
+                              "id": "95cbcc14-509a-473b-99d0-12026382e2cb",
+                              "createdAt": "2026-07-28T01:48:39.000Z",
+                              "updatedAt": "2026-07-28T01:48:39.000Z",
+                              "uid": "35240-95cbcc14-509a-473b-99d0-12026382e2cb"
+                            },
+                            {
+                              "name": "Google Cloud Tasks List queues",
+                              "id": "0f3fc98a-2ae5-45d9-a27b-0eb8dc9a4fff",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "projects",
+                                    ":project",
+                                    "locations",
+                                    ":location",
+                                    "queues"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "cc5a44a0-5bba-443e-874f-c69258f71886",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "739aa939-da3b-400d-ae21-382700f54697",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Lists queues in a project and location."
+                              },
+                              "response": [
+                                {
+                                  "id": "0d6688e4-0531-4361-a1f5-e4e9a65bb87c",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "queues"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "location"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"queues\": [\n    {\n      \"name\": \"<string>\",\n      \"rateLimits\": {\n        \"maxDispatchesPerSecond\": \"<number>\",\n        \"maxBurstSize\": \"<integer>\",\n        \"maxConcurrentDispatches\": \"<integer>\"\n      },\n      \"retryConfig\": {\n        \"maxAttempts\": \"<integer>\",\n        \"maxRetryDuration\": \"<string>\",\n        \"minBackoff\": \"<string>\",\n        \"maxBackoff\": \"<string>\",\n        \"maxDoublings\": \"<integer>\"\n      },\n      \"state\": \"STATE_UNSPECIFIED\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"rateLimits\": {\n        \"maxDispatchesPerSecond\": \"<number>\",\n        \"maxBurstSize\": \"<integer>\",\n        \"maxConcurrentDispatches\": \"<integer>\"\n      },\n      \"retryConfig\": {\n        \"maxAttempts\": \"<integer>\",\n        \"maxRetryDuration\": \"<string>\",\n        \"minBackoff\": \"<string>\",\n        \"maxBackoff\": \"<string>\",\n        \"maxDoublings\": \"<integer>\"\n      },\n      \"state\": \"PAUSED\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:48:39.000Z",
+                                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                                  "uid": "35240-0d6688e4-0531-4361-a1f5-e4e9a65bb87c"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:48:39.000Z",
+                              "updatedAt": "2026-07-28T01:48:39.000Z",
+                              "uid": "35240-0f3fc98a-2ae5-45d9-a27b-0eb8dc9a4fff"
+                            },
+                            {
+                              "name": "Google Cloud Tasks Create a queue",
+                              "id": "6125e576-8a03-4e6a-81df-b36fe4307d7d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "projects",
+                                    ":project",
+                                    "locations",
+                                    ":location",
+                                    "queues"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "61a4b563-ecfa-46b9-b016-3c680040d269",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "1b7e2f22-d19d-4824-b659-495804fb554d",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a queue in the specified project and location."
+                              },
+                              "response": [
+                                {
+                                  "id": "5f31a9eb-170b-496a-9d0d-43122457d574",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/projects/:project/locations/:location/queues",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "projects",
+                                        ":project",
+                                        "locations",
+                                        ":location",
+                                        "queues"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "location"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"rateLimits\": {\n    \"maxDispatchesPerSecond\": \"<number>\",\n    \"maxBurstSize\": \"<integer>\",\n    \"maxConcurrentDispatches\": \"<integer>\"\n  },\n  \"retryConfig\": {\n    \"maxAttempts\": \"<integer>\",\n    \"maxRetryDuration\": \"<string>\",\n    \"minBackoff\": \"<string>\",\n    \"maxBackoff\": \"<string>\",\n    \"maxDoublings\": \"<integer>\"\n  },\n  \"state\": \"PAUSED\"\n}",
+                                  "createdAt": "2026-07-28T01:48:39.000Z",
+                                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                                  "uid": "35240-5f31a9eb-170b-496a-9d0d-43122457d574"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:48:39.000Z",
+                              "updatedAt": "2026-07-28T01:48:39.000Z",
+                              "uid": "35240-6125e576-8a03-4e6a-81df-b36fe4307d7d"
+                            }
+                          ],
+                          "id": "fe6e3959-a74c-42de-936b-fcfef59f7a56",
+                          "createdAt": "2026-07-28T01:48:39.000Z",
+                          "updatedAt": "2026-07-28T01:48:39.000Z",
+                          "uid": "35240-fe6e3959-a74c-42de-936b-fcfef59f7a56"
+                        }
+                      ],
+                      "id": "447c7830-82c4-49e1-82a3-75b62128bed4",
+                      "createdAt": "2026-07-28T01:48:39.000Z",
+                      "updatedAt": "2026-07-28T01:48:39.000Z",
+                      "uid": "35240-447c7830-82c4-49e1-82a3-75b62128bed4"
+                    }
+                  ],
+                  "id": "ecfa6862-11b4-4684-865d-bd6f39501290",
+                  "createdAt": "2026-07-28T01:48:39.000Z",
+                  "updatedAt": "2026-07-28T01:48:39.000Z",
+                  "uid": "35240-ecfa6862-11b4-4684-865d-bd6f39501290"
+                }
+              ],
+              "id": "cb9bc847-6082-4525-81d9-3ca17e08d863",
+              "createdAt": "2026-07-28T01:48:39.000Z",
+              "updatedAt": "2026-07-28T01:48:39.000Z",
+              "uid": "35240-cb9bc847-6082-4525-81d9-3ca17e08d863"
+            }
+          ],
+          "id": "9df44e45-42b9-4184-8b5d-965c80864e72",
+          "createdAt": "2026-07-28T01:48:39.000Z",
+          "updatedAt": "2026-07-28T01:48:39.000Z",
+          "uid": "35240-9df44e45-42b9-4184-8b5d-965c80864e72"
+        }
+      ],
+      "id": "afcecc99-d1e0-42f2-81cf-af49992cf0ee",
+      "createdAt": "2026-07-28T01:48:39.000Z",
+      "updatedAt": "2026-07-28T01:48:39.000Z",
+      "uid": "35240-afcecc99-d1e0-42f2-81cf-af49992cf0ee"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudtasks.googleapis.com"
+    },
+    {
+      "key": "task",
+      "value": "<string>"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "provider": "google-cloud-tasks",
+  "sources": [
+    "google-cloud-tasks-projects-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-tasks-projects-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
