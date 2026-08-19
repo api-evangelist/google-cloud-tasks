@@ -1,0 +1,315 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Tasks Projects API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Tasks List queues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists queues in a project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Create a queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a queue in the specified project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Get a queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a queue configuration."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Update a queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a queue configuration."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Delete a queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a queue and all of its tasks."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks List tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue/tasks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists the tasks in a queue."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Create a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue/tasks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a task and adds it to a queue."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Get a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue/tasks/:task",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a specific task."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Delete a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue/tasks/:task",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a task from a queue."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Tasks Run a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudtasks.googleapis.com/v2/projects/:project/locations/:location/queues/:queue/tasks/:task:run",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Forces a task to run now."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
