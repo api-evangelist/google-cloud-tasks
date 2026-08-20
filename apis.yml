@@ -29,6 +29,13 @@ tags:
   - Distributed Systems
   - Google Cloud
   - Queues
+  - Task
+tags_raw:
+  - Asynchronous
+  - Background Jobs
+  - Distributed Systems
+  - Google Cloud
+  - Queues
   - Tasks
 apis:
 - aid: google-cloud-tasks:google-cloud-tasks-projects-api
@@ -37,6 +44,8 @@ apis:
   humanURL: https://cloud.google.com/tasks/docs
   baseURL: https://cloudtasks.googleapis.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
