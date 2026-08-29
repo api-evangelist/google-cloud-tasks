@@ -5,6 +5,18 @@ description: >-
   create and dispatch tasks to worker services running on App Engine or any arbitrary HTTP endpoint, with automatic rate
   limiting, retry logic, and task deduplication. It provides a fully managed service for asynchronous task execution,
   allowing you to offload work from your main application and process it reliably in the background.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
