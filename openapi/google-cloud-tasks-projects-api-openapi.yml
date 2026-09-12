@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Tasks Projects API
   description: The Cloud Tasks API enables management of distributed task execution. It allows you to create queues, enqueue tasks, and configure retry and rate limiting behavior for tasks targeting App Engine or arbitrary HTTP endpoints.
@@ -323,6 +323,23 @@ paths:
       - Projects
 components:
   schemas:
+    Task:
+      type: object
+      properties:
+        name:
+          type: string
+        httpRequest:
+          $ref: '#/components/schemas/HttpRequest'
+        scheduleTime:
+          type: string
+          format: date-time
+        createTime:
+          type: string
+          format: date-time
+        dispatchCount:
+          type: integer
+        responseCount:
+          type: integer
     HttpRequest:
       type: object
       properties:
@@ -346,6 +363,46 @@ components:
         body:
           type: string
           format: byte
+    RetryConfig:
+      type: object
+      properties:
+        maxAttempts:
+          type: integer
+        maxRetryDuration:
+          type: string
+        minBackoff:
+          type: string
+        maxBackoff:
+          type: string
+        maxDoublings:
+          type: integer
+    ListTasksResponse:
+      type: object
+      properties:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        nextPageToken:
+          type: string
+    ListQueuesResponse:
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextPageToken:
+          type: string
+    RateLimits:
+      type: object
+      properties:
+        maxDispatchesPerSecond:
+          type: number
+        maxBurstSize:
+          type: integer
+        maxConcurrentDispatches:
+          type: integer
     CreateTaskRequest:
       type: object
       properties:
@@ -357,41 +414,6 @@ components:
           - VIEW_UNSPECIFIED
           - BASIC
           - FULL
-    ListTasksResponse:
-      type: object
-      properties:
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        nextPageToken:
-          type: string
-    Task:
-      type: object
-      properties:
-        name:
-          type: string
-        httpRequest:
-          $ref: '#/components/schemas/HttpRequest'
-        scheduleTime:
-          type: string
-          format: date-time
-        createTime:
-          type: string
-          format: date-time
-        dispatchCount:
-          type: integer
-        responseCount:
-          type: integer
-    RateLimits:
-      type: object
-      properties:
-        maxDispatchesPerSecond:
-          type: number
-        maxBurstSize:
-          type: integer
-        maxConcurrentDispatches:
-          type: integer
     Queue:
       type: object
       properties:
@@ -409,25 +431,3 @@ components:
           - RUNNING
           - PAUSED
           - DISABLED
-    RetryConfig:
-      type: object
-      properties:
-        maxAttempts:
-          type: integer
-        maxRetryDuration:
-          type: string
-        minBackoff:
-          type: string
-        maxBackoff:
-          type: string
-        maxDoublings:
-          type: integer
-    ListQueuesResponse:
-      type: object
-      properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
-        nextPageToken:
-          type: string
