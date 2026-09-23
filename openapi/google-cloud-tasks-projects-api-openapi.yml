@@ -323,23 +323,65 @@ paths:
       - Projects
 components:
   schemas:
-    Task:
+    Queue:
       type: object
       properties:
         name:
           type: string
-        httpRequest:
-          $ref: '#/components/schemas/HttpRequest'
-        scheduleTime:
+          description: The queue name in the format projects/{project}/locations/{location}/queues/{queue}.
+        rateLimits:
+          $ref: '#/components/schemas/RateLimits'
+        retryConfig:
+          $ref: '#/components/schemas/RetryConfig'
+        state:
           type: string
-          format: date-time
-        createTime:
+          enum:
+          - STATE_UNSPECIFIED
+          - RUNNING
+          - PAUSED
+          - DISABLED
+    ListQueuesResponse:
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextPageToken:
           type: string
-          format: date-time
-        dispatchCount:
+    RetryConfig:
+      type: object
+      properties:
+        maxAttempts:
           type: integer
-        responseCount:
+        maxRetryDuration:
+          type: string
+        minBackoff:
+          type: string
+        maxBackoff:
+          type: string
+        maxDoublings:
           type: integer
+    ListTasksResponse:
+      type: object
+      properties:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        nextPageToken:
+          type: string
+    CreateTaskRequest:
+      type: object
+      properties:
+        task:
+          $ref: '#/components/schemas/Task'
+        responseView:
+          type: string
+          enum:
+          - VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
     HttpRequest:
       type: object
       properties:
@@ -363,37 +405,6 @@ components:
         body:
           type: string
           format: byte
-    RetryConfig:
-      type: object
-      properties:
-        maxAttempts:
-          type: integer
-        maxRetryDuration:
-          type: string
-        minBackoff:
-          type: string
-        maxBackoff:
-          type: string
-        maxDoublings:
-          type: integer
-    ListTasksResponse:
-      type: object
-      properties:
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        nextPageToken:
-          type: string
-    ListQueuesResponse:
-      type: object
-      properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
-        nextPageToken:
-          type: string
     RateLimits:
       type: object
       properties:
@@ -403,31 +414,20 @@ components:
           type: integer
         maxConcurrentDispatches:
           type: integer
-    CreateTaskRequest:
-      type: object
-      properties:
-        task:
-          $ref: '#/components/schemas/Task'
-        responseView:
-          type: string
-          enum:
-          - VIEW_UNSPECIFIED
-          - BASIC
-          - FULL
-    Queue:
+    Task:
       type: object
       properties:
         name:
           type: string
-          description: The queue name in the format projects/{project}/locations/{location}/queues/{queue}.
-        rateLimits:
-          $ref: '#/components/schemas/RateLimits'
-        retryConfig:
-          $ref: '#/components/schemas/RetryConfig'
-        state:
+        httpRequest:
+          $ref: '#/components/schemas/HttpRequest'
+        scheduleTime:
           type: string
-          enum:
-          - STATE_UNSPECIFIED
-          - RUNNING
-          - PAUSED
-          - DISABLED
+          format: date-time
+        createTime:
+          type: string
+          format: date-time
+        dispatchCount:
+          type: integer
+        responseCount:
+          type: integer
