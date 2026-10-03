@@ -323,33 +323,6 @@ paths:
       - Projects
 components:
   schemas:
-    RateLimits:
-      type: object
-      properties:
-        maxDispatchesPerSecond:
-          type: number
-        maxBurstSize:
-          type: integer
-        maxConcurrentDispatches:
-          type: integer
-    ListTasksResponse:
-      type: object
-      properties:
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        nextPageToken:
-          type: string
-    ListQueuesResponse:
-      type: object
-      properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
-        nextPageToken:
-          type: string
     Task:
       type: object
       properties:
@@ -367,6 +340,52 @@ components:
           type: integer
         responseCount:
           type: integer
+    Queue:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The queue name in the format projects/{project}/locations/{location}/queues/{queue}.
+        rateLimits:
+          $ref: '#/components/schemas/RateLimits'
+        retryConfig:
+          $ref: '#/components/schemas/RetryConfig'
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - RUNNING
+          - PAUSED
+          - DISABLED
+    ListQueuesResponse:
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextPageToken:
+          type: string
+    ListTasksResponse:
+      type: object
+      properties:
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        nextPageToken:
+          type: string
+    CreateTaskRequest:
+      type: object
+      properties:
+        task:
+          $ref: '#/components/schemas/Task'
+        responseView:
+          type: string
+          enum:
+          - VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
     RetryConfig:
       type: object
       properties:
@@ -403,31 +422,12 @@ components:
         body:
           type: string
           format: byte
-    Queue:
+    RateLimits:
       type: object
       properties:
-        name:
-          type: string
-          description: The queue name in the format projects/{project}/locations/{location}/queues/{queue}.
-        rateLimits:
-          $ref: '#/components/schemas/RateLimits'
-        retryConfig:
-          $ref: '#/components/schemas/RetryConfig'
-        state:
-          type: string
-          enum:
-          - STATE_UNSPECIFIED
-          - RUNNING
-          - PAUSED
-          - DISABLED
-    CreateTaskRequest:
-      type: object
-      properties:
-        task:
-          $ref: '#/components/schemas/Task'
-        responseView:
-          type: string
-          enum:
-          - VIEW_UNSPECIFIED
-          - BASIC
-          - FULL
+        maxDispatchesPerSecond:
+          type: number
+        maxBurstSize:
+          type: integer
+        maxConcurrentDispatches:
+          type: integer
