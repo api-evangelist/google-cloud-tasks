@@ -323,23 +323,6 @@ paths:
       - Projects
 components:
   schemas:
-    Task:
-      type: object
-      properties:
-        name:
-          type: string
-        httpRequest:
-          $ref: '#/components/schemas/HttpRequest'
-        scheduleTime:
-          type: string
-          format: date-time
-        createTime:
-          type: string
-          format: date-time
-        dispatchCount:
-          type: integer
-        responseCount:
-          type: integer
     Queue:
       type: object
       properties:
@@ -357,15 +340,23 @@ components:
           - RUNNING
           - PAUSED
           - DISABLED
-    ListQueuesResponse:
+    Task:
       type: object
       properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
-        nextPageToken:
+        name:
           type: string
+        httpRequest:
+          $ref: '#/components/schemas/HttpRequest'
+        scheduleTime:
+          type: string
+          format: date-time
+        createTime:
+          type: string
+          format: date-time
+        dispatchCount:
+          type: integer
+        responseCount:
+          type: integer
     ListTasksResponse:
       type: object
       properties:
@@ -375,29 +366,14 @@ components:
             $ref: '#/components/schemas/Task'
         nextPageToken:
           type: string
-    CreateTaskRequest:
+    RateLimits:
       type: object
       properties:
-        task:
-          $ref: '#/components/schemas/Task'
-        responseView:
-          type: string
-          enum:
-          - VIEW_UNSPECIFIED
-          - BASIC
-          - FULL
-    RetryConfig:
-      type: object
-      properties:
-        maxAttempts:
+        maxDispatchesPerSecond:
+          type: number
+        maxBurstSize:
           type: integer
-        maxRetryDuration:
-          type: string
-        minBackoff:
-          type: string
-        maxBackoff:
-          type: string
-        maxDoublings:
+        maxConcurrentDispatches:
           type: integer
     HttpRequest:
       type: object
@@ -422,12 +398,36 @@ components:
         body:
           type: string
           format: byte
-    RateLimits:
+    ListQueuesResponse:
       type: object
       properties:
-        maxDispatchesPerSecond:
-          type: number
-        maxBurstSize:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextPageToken:
+          type: string
+    RetryConfig:
+      type: object
+      properties:
+        maxAttempts:
           type: integer
-        maxConcurrentDispatches:
+        maxRetryDuration:
+          type: string
+        minBackoff:
+          type: string
+        maxBackoff:
+          type: string
+        maxDoublings:
           type: integer
+    CreateTaskRequest:
+      type: object
+      properties:
+        task:
+          $ref: '#/components/schemas/Task'
+        responseView:
+          type: string
+          enum:
+          - VIEW_UNSPECIFIED
+          - BASIC
+          - FULL
